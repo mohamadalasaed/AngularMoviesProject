@@ -1,1 +1,9 @@
-<p>home works!</p>
+<div class="container-xl d-flex flex-column min-vh-100 border-start border-end p-0 bg-light">
+    <navbar class="sticky-top"></navbar>
+
+    <home-header class="overflow-hidden" (Movie)="getMovieByName($event)"></home-header>
+
+    <home-movies [Movies]="AllMovies" class="overflow-hidden"></home-movies>
+
+    <footer class="mt-auto"></footer>
+</div>

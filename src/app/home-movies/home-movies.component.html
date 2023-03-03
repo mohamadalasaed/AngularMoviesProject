@@ -1,0 +1,12 @@
+<div class="row gap-3 justify-content-center mb-4">
+    <div class="card px-0 col-xl-2 col-md-3 col-sm-4 col-5" *ngFor="let m of Movies">
+      <a class="text-decoration-none text-dark" [routerLink]="['movie', m.id]">
+      <img src="{{ url + m.poster_path }}" class="card-img-top img-fluid">
+      <div class="card-body">
+        <h5 class="card-title">{{ m.title }}</h5>
+        <p><strong>Published: </strong>{{ m.release_date }}</p>
+        <a [routerLink]="['movie', m.id]" class="btn btn-dark">View More</a>
+      </div>
+      </a>
+    </div>
+  </div>
