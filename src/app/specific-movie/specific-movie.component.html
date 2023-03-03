@@ -1,1 +1,31 @@
-<p>specific-movie works!</p>
+<div class="container-xl d-flex flex-column min-vh-100 border-start border-end p-0">
+    <navbar class="sticky-top"></navbar>
+
+    <div class="overflow-hidden">
+        <div class="row justify-content-center gap-3 mt-4">
+            <div class="col-xl-5 col-sm-9 col-9 d-flex justify-content-center">
+                <img class="img-fluid" [src]="imgurl">
+            </div>
+            <div class="col-xl-5 col-sm-9 col-9 d-flex flex-column justify-content-center">
+                <div>
+                    <h4>Name:</h4>
+                    <p class="fs-5 text-muted">{{ Movie.title }}</p>
+                </div>
+                <div>
+                    <h4>Release Date:</h4>
+                    <p class="fs-5 text-muted">{{ Movie.release_date }}</p>
+                </div>
+                <div>
+                    <h4>Vote Average:</h4>
+                    <p class="fs-5 text-muted">{{ Movie.vote_average }}</p>
+                </div>
+                <div>
+                    <h4>Overview:</h4>
+                    <p class="fs-5 text-muted">{{ Movie.overview }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="mt-auto"></footer>
+</div>

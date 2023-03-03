@@ -9,6 +9,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+  page : number = 1;
   AllMovies: Movie[] = [];
   MovieToSearch: Movie = new Movie();
 
@@ -19,8 +20,9 @@ export class HomeComponent {
   getMovies() {
     this.AllMovies = [];
     this.apiCaller
-      .get(this.apiSvc.getUrl())
+      .get(this.apiSvc.getUrl(1))
       .subscribe((data: any) => {
+        console.log(data);
         let movies = data.results;
         movies.forEach((movie: any) => {
           let m = new Movie();
@@ -54,5 +56,22 @@ export class HomeComponent {
           });
         });
     }
+  }
+
+  UpdateMoviesArray(msg:string){
+    this.apiCaller
+      .get(this.apiSvc.getUrl(this.apiSvc.PAGE))
+      .subscribe((data: any) => {
+        console.log(data);
+        let movies = data.results;
+        movies.forEach((movie: any) => {
+          let m = new Movie();
+          m.id = movie.id
+          m.title = movie.title;
+          m.poster_path = movie.poster_path;
+          m.release_date = movie.release_date;
+          this.AllMovies.push(m);
+        });
+      });
   }
 }
